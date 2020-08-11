@@ -8,19 +8,6 @@ import TeacherItem, { Teacher } from '../../components/TeacherItem';
 import styles from './styles'
 import AsyncStorage from '@react-native-community/async-storage';
 
-function loadFavorites() {
-  AsyncStorage.getItem('favorites').then(response => {
-    if(response) {
-      const favoritedTeachers = JSON.parse(response);
-      const favoritedTeachersIds = favoritedTeachers.map((teacher: Teacher) => {
-        return teacher.id
-      })
-
-      setFavorites(favoritedTeachersIds);
-    }
-  })
-}
-
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
 
